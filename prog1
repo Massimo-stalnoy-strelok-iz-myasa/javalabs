@@ -1,0 +1,34 @@
+package ru.mirea.lab1;
+
+
+public class prog1 {
+    public static int rnd(int min, int max) {
+        max -= min;
+        return (int) (Math.random() * ++max) + min;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = new int[10];
+        System.out.println("Изначальный массив:");
+        for (int i = 0; i < arr.length; i++) {
+            int rnd = rnd(1, 100);
+            arr[i] = rnd;
+            System.out.println("Arr["+i+"] = " + arr[i]);
+        }
+        int maxi = 0;
+        int mini = 1000;
+        int average = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (maxi < arr[i]) {
+                maxi = arr[i];
+            }
+            if (mini > arr[i]) {
+                mini = arr[i];
+            }
+            average += arr[i];
+        }
+        System.out.println("Минимальное значение: " + mini);
+        System.out.println("Максимальное значение: " + maxi);
+        System.out.println("Среднее значение: " + (average / 10));
+    }
+}
